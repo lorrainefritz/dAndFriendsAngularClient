@@ -1,0 +1,81 @@
+
+<body>
+
+<div class="container-fluid mt-3" id="container">
+  <div class="row">
+    <div class="col-sm-3" id="imageCustomSpellTypeContainer" *ngFor=" let c of customTypeOfSpell">
+
+      <img class="img-fluid" id="imageCustomSpellType" src="https://drive.google.com/uc?id={{c.icon}}" alt="image"
+           width="150" height="150" (click)="findSpellsForACustomTypeOfSpell(c.id)">
+      <div class="middle">
+      <p class="nameCustomSpellType">{{c.customTypeOfSpellName}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="listOfSpells">
+<div class="col-sm-3" id="spellContainer" *ngFor="let spellsShortDescription of spellsShortDescription">
+  <div id="imageOfSpellContainer"><img class="img-fluid" id="imageOfSpell" src="https://drive.google.com/uc?id={{spellsShortDescription?.icon}}" alt="image"
+           width="150" height="150" (click)="getASpellFullDescriptionById(spellsShortDescription.id)"></div>
+  <h1>{{spellsShortDescription?.title}}</h1>
+  <h3>{{spellsShortDescription?.shortDescription}}</h3>
+</div>
+</div>
+
+
+
+<div class="overlay" *ngIf="popup">
+  <div class="popup">
+    <div class="col-sm-4" id="descriptionSpellList">
+      <div class="titleAndTagged">
+        <h1>{{spellFullDescription?.title}}</h1>
+        <h2>{{spellFullDescription?.shortDescription}}</h2>
+      </div>
+      <div id="spellDescription">
+        <div>
+          <strong>Type de sort : </strong><a> {{spellFullDescription?.customTypeOfSpellName}} </a>
+        </div>
+        <div>
+          <strong>Ecole de magie : </strong><a>{{spellFullDescription?.school}}</a>
+        </div>
+        <div>
+          <strong>niveau de sort : </strong> <a> {{spellFullDescription?.level}}</a>
+        </div>
+        <div>
+          <strong> composantes : </strong> <a> {{spellFullDescription?.componentsNames}} </a>
+        </div>
+        <div>
+          <strong> classes de personnages concernées : </strong> <a> {{spellFullDescription?.characterClassesNames}} </a>
+        </div>
+        <div>
+          <strong>Temps d'incantation : </strong> <a>{{spellFullDescription?.castingTime}}</a>
+        </div>
+        <div>
+          <strong>Portée : </strong>
+          <a> {{spellFullDescription?.range}}</a>
+        </div>
+        <div>
+          <strong> Cible : </strong><a> {{spellFullDescription?.target}}</a>
+        </div>
+        <div>
+          <strong> Durée : </strong><a> {{spellFullDescription?.duration}}</a>
+        </div>
+        <div>
+          <strong>jet de sauvegarde : </strong><a> {{spellFullDescription?.savingThrow}}</a>
+        </div>
+        <div>
+          <strong>résistance sort : </strong><a> {{spellFullDescription?.spellResistance}}</a>
+        </div>
+        <div>
+          <strong>Description : </strong><a> {{spellFullDescription?.fullDescription}}</a>
+        </div>
+      </div>
+    </div>
+    <a class="close" (click)="popup = false">&times;</a>
+  </div>
+</div>
+
+
+</body>

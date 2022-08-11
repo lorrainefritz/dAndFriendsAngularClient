@@ -1,0 +1,146 @@
+body{
+ /* background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;*/
+  background-color: rgb(200, 183, 238);
+}
+
+/*clickable customType image clickable*/
+#imageCustomSpellType {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border-style: solid;
+  border-color: black;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+}
+
+#imageCustomSpellTypeContainer:hover #imageCustomSpellType {
+  opacity: 0.3;
+
+}
+
+#imageCustomSpellTypeContainer:hover .middle {
+  opacity: 1;
+
+}
+
+.nameCustomSpellType {
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  width:150px;
+
+}
+
+/*SPELLS*/
+.listOfSpells{
+  display: flex;
+}
+
+#spellContainer{
+  border: 1px solid black;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom:2%;
+  background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+#spellContainer h1{
+  font-family:'Brush Script MT', cursive;
+}
+
+#spellContainer h3{
+  font-family:'Brush Script MT', cursive;
+  font-style: italic;
+}
+
+
+
+
+ /*clickable image of spell*/
+#imageOfSpell {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+
+}
+
+
+
+#imageOfSpellContainer:hover #imageOfSpell {
+  opacity: 0.3;
+
+}
+
+
+ /*PopUp for the FullSpellDescription on clic*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+  cursor: pointer;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+
+  .popup{
+    width: 70%;
+  }
+}

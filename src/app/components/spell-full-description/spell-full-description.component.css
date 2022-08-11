@@ -1,0 +1,37 @@
+body {
+
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: rgba(161, 112, 238, 0.56);
+
+
+}
+#totalSpellListList{
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom:2%;
+}
+#descriptionSpellList h1{
+  font-family:'Brush Script MT', cursive;
+}
+#descriptionSpellList h2{
+  font-family:'Brush Script MT', cursive;
+  font-style: italic;
+
+}
+
+#descriptionSpellList{
+  border: 1px solid black;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom:2%;
+  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
+  /*background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");*/
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+}

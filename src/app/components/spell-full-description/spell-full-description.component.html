@@ -1,0 +1,56 @@
+<body>
+<div class="row" id="totalSpellList" *ngFor="let s of spellFullDescription">
+
+  <div class="col-sm-4" id="imageOfSpell">
+    <img class="img-fluid" src="https://drive.google.com/uc?id={{s.icon}}" alt="Google Drive Image">
+  </div>
+
+
+  <div class="col-sm-4" id="descriptionSpellList">
+    <div class="titleAndTagged">
+      <h1>{{s.title}}</h1>
+      <h2>{{s.shortDescription}}</h2>
+    </div>
+    <div id="spellDescription">
+      <div>
+        <strong>Type de sort : </strong><a> {{s.customTypeOfSpellName}} </a>
+      </div>
+      <div>
+        <strong>Ecole de magie : </strong><a>{{s.school}}</a>
+      </div>
+      <div>
+        <strong>niveau de sort : </strong> <a> {{s.level}}</a>
+      </div>
+      <div>
+        <strong> composantes : </strong> <a> {{s.componentsNames}} </a>
+      </div>
+      <div>
+        <strong> classes de personnages concernées : </strong> <a> {{s.characterClassesNames}} </a>
+      </div>
+      <div>
+        <strong>Temps d'incantation : </strong> <a>{{s.castingTime}}</a>
+      </div>
+      <div>
+        <strong>Portée : </strong>
+        <a> {{s.range}}</a>
+      </div>
+      <div>
+        <strong> Cible : </strong><a> {{s.target}}</a>
+      </div>
+      <div>
+        <strong> Durée : </strong><a> {{s.duration}}</a>
+      </div>
+      <div>
+        <strong>jet de sauvegarde : </strong><a> {{s.savingThrow}}</a>
+      </div>
+      <div>
+        <strong>résistance sort : </strong><a> {{s.spellResistance}}</a>
+      </div>
+      <div>
+        <strong>Description : </strong><a> {{s.fullDescription}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

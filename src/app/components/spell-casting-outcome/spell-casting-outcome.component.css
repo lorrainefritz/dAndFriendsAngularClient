@@ -1,0 +1,48 @@
+body{
+  background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+  /* background-color: rgb(200, 183, 238);*/
+}
+
+#imageSuccess:hover {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  opacity: 0.3;
+
+}
+#imageFailure:hover {
+  opacity: 1;
+  transition: .5s ease;
+  /*backface-visibility: hidden;*/
+  opacity: 0.3;
+}
+/*
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+}*/
+#container:hover .middle {
+  opacity: 1;
+
+}
+
+#failure {
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+
+border: 1px solid white;
+}
+#success {
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+
+  border: 1px solid white;
+}
+
