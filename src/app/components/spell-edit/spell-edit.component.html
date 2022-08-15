@@ -3,8 +3,8 @@
     <div class="form-holder"></div>
     <div class="form-content">
       <div class="form-items">
-        <h2>Ajouter un nouveau sort</h2>
-        <form [formGroup]="spellForm" #spell="ngForm" (ngSubmit)="addASpell(spell.value)">
+        <h2>Editer ce sort : {{currentSpell?.title}}</h2>
+        <form [formGroup]="spellFormEdit" #spell="ngForm" (ngSubmit)="addSpellAfterEdit(spell.value)">
 
           <div class="col-md-12">
             <div class="form-group">
@@ -72,7 +72,7 @@
           </div>
 
           <div class="col-md-12">
-            <div>Composants:</div>
+            <div>Composants: </div>
             <div class="form-group">
               <label for="componentsNames"></label>
               <select formControlName="componentsNames" id="componentsNames" name="componentsNames" ngModel
@@ -227,7 +227,7 @@
             </div>
 
             <div class="saveButton">
-              <button type="submit" [disabled]="spellForm.invalid" id="add-spell-form" class="btn btn-dark">Save
+              <button type="submit" [disabled]="spellFormEdit.invalid" id="add-spell-form" class="btn btn-dark">Save
               </button>
             </div>
           </div>

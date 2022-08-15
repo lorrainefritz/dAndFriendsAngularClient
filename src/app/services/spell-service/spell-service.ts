@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
@@ -12,19 +12,37 @@ import {CustomTypeOfSpell} from "../../model/custom-type-of-spell";
 })
 export class SpellService {
 
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  getAllSpellsFullDescription():Observable<SpellFullDescription[]> {
+  getAllSpellsFullDescription(): Observable<SpellFullDescription[]> {
     let host = environment.host;
     return this.http.get<SpellFullDescription[]>(host + "/spells");
   }
 
-  getASpellDescription(id:number):Observable<SpellFullDescription> {
+  getASpellDescription(id: number): Observable<SpellFullDescription> {
     let host = environment.host;
-    return this.http.get<SpellFullDescription>(host + "/spells/get/"+id);
+    return this.http.get<SpellFullDescription>(host + "/spells/get/" + id);
   }
-  findSpellsForACustomTypeOfSpell(customTypeOfSpellId:number):Observable<SpellShortDescription[]>{
+
+  findSpellsForACustomTypeOfSpell(customTypeOfSpellId: number): Observable<SpellShortDescription[]> {
     let host = environment.host;
-    return this.http.get<SpellShortDescription[]>(host + "/spells/byCustomTypeOfSpell/"+customTypeOfSpellId);
+    return this.http.get<SpellShortDescription[]>(host + "/spells/byCustomTypeOfSpell/" + customTypeOfSpellId);
   }
+
+  public deleteASpellById(id: number):Observable<void>{
+    let host = environment.host;
+    alert(id)
+    return this.http.delete<void>(host + "/spells/delete/" + id);
+  }
+
+  public addASpell(spell:SpellFullDescription):Observable<SpellFullDescription>{
+    let host = environment.host;
+    return this.http.post<SpellFullDescription>(host + "/spells/add",spell);
+  }
+  public editASpell(spell:SpellFullDescription):Observable<SpellFullDescription>{
+    let host = environment.host;
+    return this.http.post<SpellFullDescription>(host + "/spells/edit",spell);
+  }
+
 }

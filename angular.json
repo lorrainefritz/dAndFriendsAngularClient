@@ -25,7 +25,12 @@
             "styles": [
               "src/styles.css","node_modules/bootstrap5/src/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/bootstrap5/src/js/bootstrap.bundle.min.js","node_modules/jquery/dist/jquery.min.js"]
+            "scripts": ["node_modules/bootstrap5/src/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-validation/dist/jquery.validate.js",
+              "node_modules/jquery-validation/dist/jquery.validate.min.js",
+              "node_modules/jquery-validation/dist/additional-methods.min.js"
+            ]
           },
           "configurations": {
             "production": {
