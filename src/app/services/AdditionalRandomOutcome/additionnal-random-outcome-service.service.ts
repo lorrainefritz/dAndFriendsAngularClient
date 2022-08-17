@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AdditionalRandomOutcome} from "../../model/additional-random-outcome";
 import {environment} from "../../../environments/environment";
@@ -13,7 +13,8 @@ export class AdditionnalRandomOutcomeServiceService {
   }
 
   getAnAdditionalRandomOutcome():Observable<AdditionalRandomOutcome>{
+    let headers = new HttpHeaders();
     let host = environment.host
-    return this.http.get<AdditionalRandomOutcome>(host+"/spellCastingOutcomes/additionalRandomOutcomes/generate");
+    return this.http.get<AdditionalRandomOutcome>(host+"/spellCastingOutcomes/additionalRandomOutcomes/generate",{headers: headers,withCredentials: true});
   }
 }

@@ -1,0 +1,38 @@
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder"></div>
+    <div class="form-content">
+      <div class="form-items">
+        <h2>Login</h2>
+        <form [formGroup]="authLoginInfoForm" #authLoginInfo="ngForm" (ngSubmit)="logAUserOfApp(authLoginInfo.value)">
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="userLogin"><strong>Login :</strong></label>
+              <input formControlName="userLogin" id="userLogin" type="text" class="form-control" ngModel="authLoginInfo.userLogin">
+              <div *ngIf="f['userLogin'].touched && f['userLogin'].invalid" class="alert alert-danger">
+                <div *ngIf="f['userLogin'].errors && f['userLogin'].errors['required']">Id is required.</div>
+                <div *ngIf="f['userLogin'].errors && f['userLogin'].errors['minlength']">Id should be > 0.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="pass"><strong>Password :</strong></label>
+              <input formControlName="pass" id="pass" type="text" class="form-control" ngModel="authLoginInfo.pass">
+              <div *ngIf="f['pass'].touched && f['pass'].invalid" class="alert alert-danger">
+                <div *ngIf="f['pass'].errors && f['pass'].errors['required']">Id is required.</div>
+                <div *ngIf="f['pass'].errors && f['pass'].errors['minlength']">Id should be > 0.</div>
+              </div>
+            </div>
+          </div>
+          <div class="saveButton">
+            <button type="submit" [disabled]="authLoginInfoForm.invalid" class="btn btn-dark">Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

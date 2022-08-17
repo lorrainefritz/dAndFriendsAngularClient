@@ -11,8 +11,13 @@ import {FooterComponent} from './components/footer/footer.component';
 import {SpellCastingOutcomeComponent} from './components/spell-casting-outcome/spell-casting-outcome.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SpellFormComponent} from './components/spell-form/spell-form.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SpellEditComponent} from './components/spell-edit/spell-edit.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import {CookieService} from "ngx-cookie-service";
+import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -28,15 +33,20 @@ import {SpellEditComponent} from './components/spell-edit/spell-edit.component';
     SpellCastingOutcomeComponent,
     SpellFormComponent,
     SpellEditComponent,
+    LoginComponent,
+    LoginFormComponent,
+    HomeComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

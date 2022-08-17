@@ -26,22 +26,22 @@ export class SpellFormComponent implements OnInit {
   }
 
   spellForm = new FormGroup({
-    id: new FormControl('', [Validators.required, Validators.min(1)]),
+    id: new FormControl(''),
     title: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
-    customTypeOfSpellName: new FormControl(''),
-    school:new FormControl(''),
+    customTypeOfSpellName: new FormControl('',[Validators.required]),
+    school:new FormControl('',[Validators.required]),
     level: new FormControl('', [Validators.required, Validators.min(0)]),
-    componentsNames: new FormControl(''),
-    characterClassesNames: new FormControl(''),
-    spellResistance: new FormControl(''),
+    componentsNames: new FormControl('',[Validators.required]),
+    characterClassesNames: new FormControl('',[Validators.required]),
+    spellResistance: new FormControl('',[Validators.required]),
     castingTime: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
     range: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
     target: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
     duration: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
     savingThrow: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
-    shortDescription: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
-    fullDescription: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)]),
-    icon: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(65)])
+    shortDescription: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(250)]),
+    fullDescription: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(250)]),
+    icon: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(250)])
 
   });
 

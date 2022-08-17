@@ -12,7 +12,8 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div>
     <a class="navbar-brand" href="#">
-      <img src="https://drive.google.com/uc?id=170kvmPGmvgMtcKGFolo74ZneqkqZvlJ5" alt="Avatar Logo"
+
+      <img src="https://drive.google.com/uc?id=1Y9GCFvnJMU9wSikesVls8QZg3O-Mftaz" alt="Avatar Logo"
            style="width:300px;">
     </a>
   </div>
@@ -22,20 +23,32 @@
         <a class="nav-link" routerLink="/">home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/combats"> Générateur de combat </a>
+        <a class="nav-link" routerLink="/about-us">A Propos de Nous</a>
       </li>
-      <li class="nav-item">
+
+      <li class="nav-item" [hidden]="tokenIsPresent()">
+        <a class="nav-link" routerLink="/login"> Login </a>
+      </li>
+
+      <li class="nav-item" *ngIf="tokenIsPresent()">
         <a class="nav-link" routerLink="/spellOutcomes">Lancer un sort</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Les
-          sorts</a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" routerLink="/customTypeOfSpells"> Mémo des sorts par type </a></li>
-          <li><a class="dropdown-item" routerLink="/spells"> Liste complète </a></li>
-          <li><a class="dropdown-item" routerLink="/spellForm"> Ajouter un sort </a></li>
+      <li class="nav-item" *ngIf="tokenIsPresent()"><a class="nav-link" routerLink="/customTypeOfSpells"> Mémo des
+        sorts
+        par type </a></li>
+      <li class="nav-item" *ngIf="tokenIsPresent()"><a class="nav-link" routerLink="/spells"> Liste complète des
+        sorts </a></li>
+
+      <div class="dropdown" *ngIf="tokenIsPresent()">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          Welcome back <a *ngIf="pseudoIsPresent()">{{pseudo}}!</a>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li class="nav-item" *ngIf="tokenIsPresent()"><a type="submit" (click)="logout()">
+            Logout </a>
         </ul>
-      </li>
+      </div>
     </ul>
   </div>
 

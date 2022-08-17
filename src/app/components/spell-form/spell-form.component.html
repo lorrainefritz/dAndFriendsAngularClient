@@ -6,25 +6,22 @@
         <h2>Ajouter un nouveau sort</h2>
         <form [formGroup]="spellForm" #spell="ngForm" (ngSubmit)="addASpell(spell.value)">
 
-          <div class="col-md-12">
+          <div class="col-md-12" hidden>
             <div class="form-group">
               <label for="id"><strong>Id :</strong></label>
               <input formControlName="id" id="id" type="number" class="form-control">
-              <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
-                <div *ngIf="f['id'].errors && f['id'].errors['required']">Id is required.</div>
-                <div *ngIf="f['id'].errors && f['id'].errors['minlength']">Id should be > 0.</div>
-              </div>
             </div>
           </div>
+
 
           <div class="col-md-12">
             <div class="form-group">
               <label for="title"><strong>Title :</strong></label>
               <input formControlName="title" id="title" type="text" class="form-control">
               <div *ngIf="f['title'].touched && f['title'].invalid" class="alert alert-danger">
-                <div *ngIf="f['title'].errors && f['title'].errors['required']">Title is required.</div>
-                <div *ngIf="f['title'].errors && f['title'].errors['minlength']">Title should be 3 character.</div>
-                <div *ngIf="f['title'].errors && f['title'].errors['maxlength']">Title should <65 character.</div>
+                <div *ngIf="f['title'].errors && f['title'].errors['minlength']">title should be 3 characters long at least.</div>
+                <div *ngIf="f['title'].errors && f['title'].errors['required']">title is required.</div>
+                <div *ngIf="f['title'].errors && f['title'].errors['maxlength']">title should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -36,6 +33,9 @@
                        value="{{customType.customTypeOfSpellName}}"
                        ngModel name="customTypeOfSpellName">{{customType.customTypeOfSpellName}}
               </div>
+            </div>
+            <div *ngIf="f['customTypeOfSpellName'].touched && f['customTypeOfSpellName'].invalid" class="alert alert-danger">
+              <div *ngIf="f['customTypeOfSpellName'].errors && f['customTypeOfSpellName'].errors['required']">customTypeOfSpellName is required.</div>
             </div>
           </div>
           <div class="col-md-12">
@@ -58,6 +58,9 @@
               <input formControlName="school" type="radio" name="school" value="TRANSMUTATION" ngModel name="school">
               Transmutation
             </div>
+            <div *ngIf="f['school'].touched && f['school'].invalid" class="alert alert-danger">
+              <div *ngIf="f['school'].errors && f['school'].errors['required']">School is required.</div>
+            </div>
           </div>
 
           <div class="col-md-12">
@@ -67,6 +70,7 @@
               <div *ngIf="f['level'].touched && f['level'].invalid" class="alert alert-danger">
                 <div *ngIf="f['level'].errors && f['level'].errors['required']">Level is required.</div>
                 <div *ngIf="f['level'].errors && f['level'].errors['minlength']">Level should be >= 0.</div>
+                <div *ngIf="f['level'].errors && f['level'].errors['maxlength']">level is too high 100 max.</div>
               </div>
             </div>
           </div>
@@ -85,6 +89,9 @@
                 <option value="focalisateur divin">Focalisateur Divin</option>
                 <option value="Xp">Xp</option>
               </select>
+              <div *ngIf="f['componentsNames'].touched && f['componentsNames'].invalid" class="alert alert-danger">
+                <div *ngIf="f['componentsNames'].errors && f['componentsNames'].errors['required']">Components are required.</div>
+              </div>
             </div>
           </div>
 
@@ -102,6 +109,9 @@
                 <option value="paladin">Paladin</option>
                 <option value="druide">Druide</option>
               </select>
+              <div *ngIf="f['characterClassesNames'].touched && f['characterClassesNames'].invalid" class="alert alert-danger">
+                <div *ngIf="f['characterClassesNames'].errors && f['characterClassesNames'].errors['required']">CharacterClass are required.</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="castingTime"><strong>Temps d'incantation : </strong></label>
@@ -109,11 +119,9 @@
                      id="castingTime"
                      placeholder="castingTime" required>
               <div *ngIf="f['castingTime'].touched && f['castingTime'].invalid" class="alert alert-danger">
-                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['required']">castingTime is required.
-                </div>
-                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['minlength']">castingTime should be 3
-                  character.
-                </div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['minlength']">castingTime should be 3 characters long at least.</div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['required']">castingTime is required.</div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['maxlength']">castingTime should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -124,8 +132,9 @@
               <input formControlName="range" type="text" ngModel name="range" class="form-control" id="range"
                      placeholder="range" required>
               <div *ngIf="f['range'].touched && f['range'].invalid" class="alert alert-danger">
+                <div *ngIf="f['range'].errors && f['range'].errors['minlength']">range should be 3 characters long at least.</div>
                 <div *ngIf="f['range'].errors && f['range'].errors['required']">range is required.</div>
-                <div *ngIf="f['range'].errors && f['range'].errors['minlength']">range should be 3 character.</div>
+                <div *ngIf="f['range'].errors && f['range'].errors['maxlength']">range should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -136,8 +145,9 @@
               <input formControlName="target" type="target" ngModel name="target" class="form-control" id="target"
                      placeholder="target" required>
               <div *ngIf="f['target'].touched && f['target'].invalid" class="alert alert-danger">
+                <div *ngIf="f['target'].errors && f['target'].errors['minlength']">target should be 3 characters long at least.</div>
                 <div *ngIf="f['target'].errors && f['target'].errors['required']">target is required.</div>
-                <div *ngIf="f['target'].errors && f['target'].errors['minlength']">target should be 3 character.</div>
+                <div *ngIf="f['target'].errors && f['target'].errors['maxlength']">target should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -149,9 +159,9 @@
                      id="duration"
                      placeholder="duration" required>
               <div *ngIf="f['duration'].touched && f['duration'].invalid" class="alert alert-danger">
+                <div *ngIf="f['duration'].errors && f['duration'].errors['minlength']">duration should be 3 characters long at least.</div>
                 <div *ngIf="f['duration'].errors && f['duration'].errors['required']">duration is required.</div>
-                <div *ngIf="f['duration'].errors && f['duration'].errors['minlength']">duration should be 3 character.
-                </div>
+                <div *ngIf="f['duration'].errors && f['duration'].errors['maxlength']">duration should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -163,11 +173,9 @@
                      id="spellResistance"
                      placeholder="savingThrow" required>
               <div *ngIf="f['savingThrow'].touched && f['savingThrow'].invalid" class="alert alert-danger">
-                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['required']">savingThrow is required.
-                </div>
-                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['minlength']">savingThrow should be 3
-                  character.
-                </div>
+                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['minlength']">Icon should be 3 characters long at least.</div>
+                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['required']">Icon is required.</div>
+                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['maxlength']">Icon should be < 65 characters.</div>
               </div>
             </div>
           </div>
@@ -180,6 +188,9 @@
               <input formControlName="spellResistance" type="radio" name="spellResistance" value="false" ngModel
                      name="spellResistance"> Faux
             </div>
+            <div *ngIf="f['spellResistance'].touched && f['spellResistance'].invalid" class="alert alert-danger">
+              <div *ngIf="f['spellResistance'].errors && f['spellResistance'].errors['required']">spellResistance is required.</div>
+            </div>
           </div>
 
           <div class="col-md-12">
@@ -190,10 +201,9 @@
                      id="shortDescription"
                      placeholder="shortDescription" required>
               <div *ngIf="f['shortDescription'].touched && f['shortDescription'].invalid" class="alert alert-danger">
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['required']">shortDescription is required.
-                </div>
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">shortDescription should be 3 character.
-                </div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">shortDescription should be 3 characters long at least.</div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['required']">shortDescription is required.</div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['maxlength']">shortDescription should be < 250 characters.</div>
               </div>
             </div>
           </div>
@@ -204,14 +214,10 @@
                      class="form-control"
                      id="fullDescription"
                      placeholder="fullDescription" required>
-
               <div *ngIf="f['fullDescription'].touched && f['fullDescription'].invalid" class="alert alert-danger">
-                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['required']">
-                  fullDescription is required.
-                </div>
-                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['maxlength']">
-                  fullDescription should be 3 character.
-                </div>
+                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['required']">fullDescription is required.</div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">fullDescription should be 3 characters long at least.</div>
+                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['maxlength']">fullDescription is too long, should be 250 characters max.</div>
               </div>
             </div>
           </div>
@@ -221,8 +227,10 @@
               <label for="icon"><strong>Icon : </strong></label>
               <input formControlName="icon" type="icon" ngModel name="icon" class="form-control" id="icon"
                      placeholder="icon">
-              <div *ngIf="f['title'].touched && f['title'].invalid" class="alert alert-danger">
-                <div *ngIf="f['title'].errors && f['title'].errors['maxlength']">Icon should be < 500 character.</div>
+              <div *ngIf="f['icon'].touched && f['icon'].invalid" class="alert alert-danger">
+                <div *ngIf="f['icon'].errors && f['icon'].errors['minlength']">Icon should be 3 characters long at least.</div>
+                <div *ngIf="f['icon'].errors && f['icon'].errors['required']">Icon is required.</div>
+                <div *ngIf="f['icon'].errors && f['icon'].errors['maxlength']">Icon should be < 250 characters.</div>
               </div>
             </div>
 

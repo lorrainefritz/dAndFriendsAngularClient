@@ -37,16 +37,10 @@ export class SpellCastingOutcomeComponent implements OnInit {
     this.additionalRandomOutcomeService.getAnAdditionalRandomOutcome().subscribe(data=>{this.additionalRandomOutcome=data;})
   }
 
-  /*getAspellCastingOutcome(b: boolean) {
-    alert(b)
-    this.spellCastingOutcomeService.getASpellCastingOutcome(b).subscribe(data=>{
-      this.spellCastingOutcome=data;
-    })
-    alert(this.spellCastingOutcome?.description)
-  }*/
+
 
   getAspellCastingOutcomeById(id: number) {
-    this.spellCastingOutcomeService.getASpellCastingOutcomeById().subscribe(data => {
+    this.spellCastingOutcomeService.getASpellCastingOutcomeById(id).subscribe(data => {
       this.spellCastingOutcome = data;
     })
   }
