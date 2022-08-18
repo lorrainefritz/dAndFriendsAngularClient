@@ -1,108 +1,77 @@
 <body>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-
-
-
-
-
-
-    /* Create three equal columns that sits next to each other */
-    #imageSuccess {
-
-      flex: 50%;
-      padding: 50px;
-      border-style: solid;
-      border-color: #37fd02;
-      display: block;
-
-
-    }
-
-    #imageFailure {
-      flex: 50%;
-      padding: 50px;
-      border-style: solid;
-      border-color: deeppink;
-
-    }
-
-
-  </style>
-</head>
-<div class="container-fluid mt-3">
+<div class="barColor"></div>
+<div class="container" id="generalPage">
   <div class="container-fluid mt-3">
-
     <div class="container">
-
       <div class="col-md-6 offset-md-3 text-center">
         <div class="d-flex align-items-center justify-content-center">
-          <div class="column"><img class="img-fluid"
-                                   src="https://drive.google.com/uc?id=1q25ALo0OafgJB5hgxF8qafsyrFDcBTv0"
-                                   width="50"
-                                   height="50" alt="Google Drive Image"></div>
-          <h2 class="column"> Après avoir lancé ton dé, ton sort a </h2>
-          <div class="column"><img class="img-fluid"
-                                   src="https://drive.google.com/uc?id=1q25ALo0OafgJB5hgxF8qafsyrFDcBTv0"
-                                   width="50"
-                                   height="50" alt="Google Drive Image"></div>
+          <h1 class="column"> Après avoir lancé ton Dé, ton Sort a : </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dicesAndEffects">
+    <div>
+      <div class="d-flex align-items-center justify-content-center" id="container">
 
+        <div class="successContainer">
+
+          <div class="container py-5 text-center">
+            <a class=" buzz-out-on-hover">
+              <div id="imageSuccess"><img class="img fluid"
+                                          src="https://drive.google.com/uc?id=12PU9UlJIsSkuksutPS7W-6AjCjyuP4Fq"
+                                          width="150"
+                                          height="150" alt="Google Drive Image"
+                                          (click)="getAspellCastingOutcome(true)">
+              </div>
+            </a>
+            <div class="middle">
+              <p id="success">Réussi ! </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="failureContainer">
+          <div class="container py-5 text-center">
+            <a class=" buzz-out-on-hover">
+              <div id="imageFailure"><img class="img fluid"
+                                          src="https://drive.google.com/uc?id=1KuT2nX0hpEajiJCffAh3txVnGZrNGTxF"
+                                          width="150"
+                                          height="150" alt="Google Drive Image"
+                                          (click)="getAspellCastingOutcome(false)">
+              </div>
+            </a>
+            <div class="middle">
+              <p id="failure">Echoué </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div class="d-flex align-items-center justify-content-center">
 
-  </div>
-  <div>
-    <div class="d-flex align-items-center justify-content-center" id="container">
+        <div><img class="img-fluid" src="https://drive.google.com/uc?id=1kHjnvDugv1vYyFPOKJjRC1r9cDInLI0U" width="250"
+                  height="250" alt="Google Drive Image"></div>
 
-      <div class="successContainer">
-        <div id="imageSuccess"><img class="img fluid"
-                                    src="https://drive.google.com/uc?id=1QNW3fZEWhrp16JAF6JDgHmmkaNbBWtt5"
-                                    width="75"
-                                    height="75" alt="Google Drive Image"
-                                    (click)="getAspellCastingOutcome(true)">
-        </div>
-        <div class="middle">
-          <p id="success">Réussi ! </p>
-        </div>
-      </div>
-
-      <div class="failureContainer">
-        <div id="imageFailure"><img class="img-fluid"
-                                    src="https://drive.google.com/uc?id=1JSFbhy5xy8Cm6QR_vvXKML36VFYxgkFm"
-                                    width="75"
-                                    height="75" alt="Google Drive Image"
-                                    (click)="getAspellCastingOutcome(false)">
-        </div>
-        <div class="middle">
-          <p id="failure">Echoué >_<</p>
-        </div>
-
-      </div>
     </div>
   </div>
-
-  <div class="d-flex align-items-center justify-content-center">
-    <div class="row" id="customOutCome">
-      <div><img class="img-fluid" src="https://drive.google.com/uc?id=1kHjnvDugv1vYyFPOKJjRC1r9cDInLI0U" width="150"
-                height="150" alt="Google Drive Image"></div>
-    </div>
-  </div>
-
-  <div class="d-flex align-items-center justify-content-center">
+ <div id ="spellCastingOutcome">
+  <div class="d-flex align-items-center justify-content-center" id="Outcome" >
     <div>
       <div>{{spellCastingOutcome?.icon}}</div>
     </div>
     <h2> {{spellCastingOutcome?.description}}</h2>
   </div>
-  <div class="d-flex align-items-center justify-content-center">
+
+  <div class="d-flex align-items-center justify-content-center" id="SuppOutcomeButton">
     <div *ngIf="spellCastingOutcome?.hasARandomAdditionalEffect">
       <button class="btn btn-dark" (click)="onGetAnAdditionalRandomOutcome()">Effet Supplémentaire</button>
     </div>
   </div>
-  <div class="d-flex align-items-center justify-content-center">
+  <div class="d-flex align-items-center justify-content-center" id="additionalOutcome">
     <div>
       <div>{{additionalRandomOutcome?.icon}}</div>
     </div>
@@ -110,6 +79,7 @@
       {{additionalRandomOutcome?.description}}
     </h2>
   </div>
-
+ </div>
 </div>
+<div class="barColor"></div>
 </body>

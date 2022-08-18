@@ -39,10 +39,16 @@ export class SpellFullDescriptionComponent implements OnInit {
     let conf = confirm("Etes vous sûre de vouloir supprimer ce sort?");
     if (conf == true) {
       this.spellService.deleteASpellById(id).subscribe((response: void) => {
-        /*this.router.navigateByUrl("/spells");*/
         console.log(response);
       });
+      this.reloadComponent();
     }
+  }
+
+  reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/spells']);
   }
 
   editASpell(spell: SpellFullDescription) {

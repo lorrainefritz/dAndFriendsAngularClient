@@ -4,6 +4,7 @@ import {Login} from "../../model/login";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
 import {User} from "../../model/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -13,14 +14,14 @@ import {User} from "../../model/user";
 export class LoginFormComponent implements OnInit {
   user?:User;
 
-  constructor(private loginService:LoginService,private cookieService : CookieService) { }
+  constructor(private loginService:LoginService,private cookieService : CookieService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   loginForm =new FormGroup({
-    username: new FormControl('',[Validators.required, Validators.min(1)]),
-    password: new FormControl('',[Validators.required, Validators.min(2)])
+    username: new FormControl('',[Validators.required, Validators.min(3),Validators.maxLength(65)]),
+    password: new FormControl('',[Validators.required, Validators.min(3),Validators.maxLength(65)])
   });
 
   get l(){
@@ -29,20 +30,14 @@ export class LoginFormComponent implements OnInit {
 
   submit(){
     console.log(this.loginForm.value)
-    alert(this.loginForm.value);
   }
   logAUser(login: Login){
-    alert(login.username +login.password);
     this.loginService.loginAUser(login).subscribe((response:string[])=>{
-      alert(response);
-      alert(response[0]);
-      alert(response[1]);
-      alert(response[2]);
       console.log(response);
       this.cookieService.set('tokenDandFriends', response[0]);
       this.cookieService.set('roleDandFriends', response[1]);
       this.cookieService.set('pseudoDandFriends', response[2]);
-
+      this.router.navigateByUrl('/');
       });
   }
 

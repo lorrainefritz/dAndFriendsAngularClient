@@ -1,48 +1,207 @@
+.barColor{
+padding-top: 2%;
+  background-color: rgb(217, 193, 241);
+}
+
 body{
- /* background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+ /*
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;*/
-  /* background-color: rgb(200, 183, 238);*/
+   background-color: #111111;
+
+
+}
+h1{
+  font-family: 'Curlz MT', cursive;
+  color: #e5e0ea;
+}
+#generalPage{
+
+}
+.dicesAndEffects{
+  padding: 2%;
+  background-image: url("https://drive.google.com/uc?id=13NEukuGGeXlOG_2QQKRgjYkqBFcFyo5i");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #imageSuccess:hover {
   opacity: 1;
   transition: .5s ease;
-  backface-visibility: hidden;
   opacity: 0.3;
 
 }
 #imageFailure:hover {
   opacity: 1;
   transition: .5s ease;
-  /*backface-visibility: hidden;*/
   opacity: 0.3;
 }
-/*
 .middle {
   transition: .5s ease;
   opacity: 0;
-}*/
+  text-decoration:none;
+}
 #container:hover .middle {
   opacity: 1;
+  transition: .5s ease;
 
 }
 
 #failure {
-  background-color: black;
+  background-color: #860606;
   text-align: center;
   color: white;
-  font-size: 16px;
+  /*font-size: 16px;*/
+  font-family: 'Times New Roman', cursive;
+  width: content-box;
+  opacity: 0.5;
 
-border: 1px solid white;
 }
 #success {
-  background-color: black;
+  background-color: #138f07;
   text-align: center;
   color: white;
-  font-size: 16px;
+  font-family: 'Times New Roman', cursive;
+  opacity: 0.5;
 
-  border: 1px solid white;
+}
+
+#imageSuccess {
+
+  flex: 50%;
+  padding: 50px;
+
+
+}
+
+#imageFailure {
+  flex: 50%;
+  padding: 50px;
+
+}
+
+#spellCastingOutcome h2{
+  font-family: 'Curlz MT', cursive;
+  color: #e5e0ea;
+}
+#Outcome{
+  padding-top: 2%;
+}
+#SuppOutcomeButton{
+  padding: 1%;
+}
+/*#additionalOutcome{
+  padding: 2%;
+}*/
+
+/*====================*/
+/* BUZZ OUT
+/*====================*/
+
+@-webkit-keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+
+@keyframes buzz-out-on-hover {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
+
+.buzz-out-on-hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  /*transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+}
+
+.buzz-out-on-hover:hover, .buzz-out-on-hover:focus, .buzz-out-on-hover:active {
+  -webkit-animation-name: buzz-out-on-hover;
+  animation-name: buzz-out-on-hover;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
 

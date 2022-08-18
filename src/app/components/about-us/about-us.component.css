@@ -1,0 +1,15 @@
+.barColor{
+  padding-top: 2%;
+  background-color: rgb(217, 193, 241);
+}
+body{
+  background-color: rgb(217, 193, 241);
+  color: #e5e0ea;
+}
+.container{
+  padding: 2%;
+  background-color: #111111;
+}
+h1,h2{
+  font-family: 'Curlz MT', cursive;
+}

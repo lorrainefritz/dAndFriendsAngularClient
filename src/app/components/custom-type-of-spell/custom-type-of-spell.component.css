@@ -5,7 +5,9 @@ body{
   background-size: cover;*/
   background-color: rgb(200, 183, 238);
 }
-
+#imageCustomSpellTypeContainer{
+  padding-top: 2%;
+}
 /*clickable customType image clickable*/
 #imageCustomSpellType {
   opacity: 1;
@@ -51,7 +53,7 @@ body{
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom:2%;
-  background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -103,21 +105,29 @@ body{
 
 .popup {
   margin: 70px auto;
-  padding: 20px;
-  background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom:2%;
+  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
 }
 
-.popup h2 {
+.popup h1 {
+  margin-top: 0;
+  color: #111111;
+  font-family:'Brush Script MT', cursive;
+  font-size: xxx-large;
+}
+.popup h3 {
   margin-top: 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
 }
 .popup .close {
   position: absolute;

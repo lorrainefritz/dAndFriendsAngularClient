@@ -17,7 +17,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class SpellFormComponent implements OnInit {
   customTypeOfSpells?: CustomTypeOfSpell[] = [];
   components?: ComponentOfSpell[] = [];
-
+  custom:string="TEST";
   constructor(private spellService: SpellService, private customTypeOfSpellService: CustomTypeOfSpellServiceService, private componentOfSpellService: ComponentServiceService,private router:Router) {
   }
 
@@ -61,10 +61,10 @@ export class SpellFormComponent implements OnInit {
   }
 
   addASpell(spell: SpellFullDescription) {
-    alert(spell.id + spell.title + spell.customTypeOfSpellName + spell.school +
+   /* alert(spell.id + spell.title + spell.customTypeOfSpellName + spell.school +
       spell.level + spell.componentsNames + spell.characterClassesNames +
       spell.castingTime + spell.range + spell.target + spell.duration + spell.savingThrow
-      + spell.spellResistance + spell.shortDescription + spell.fullDescription + spell.icon);
+      + spell.spellResistance + spell.shortDescription + spell.fullDescription + spell.icon);*/
 
     this.spellService.addASpell(spell).subscribe((response: SpellFullDescription) => {
       console.log(response);

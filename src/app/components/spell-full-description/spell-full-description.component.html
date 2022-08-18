@@ -52,9 +52,9 @@
     </div>
   </div>
   <div class="col-sm-4" id="buttons">
+    <div *ngIf="roleIsMJ()" id="addButton"><button  routerLink="/spellForm" type="button" class="btn btn-secondary">Ajouter un sort</button></div>
+    <div *ngIf="roleIsMJ()" id="editButton"><button   type="button" class="btn btn-primary" (click)="editASpell(s)" >Modifier un sort</button></div>
     <div *ngIf="roleIsMJ()" id="deleteButton"><button class="btn btn-danger" (click)="deleteASpellById(s.id)">Supprimer un sort</button></div>
-    <div *ngIf="roleIsMJ()" id="editButton"><button   type="button" class="btn btn-warning" (click)="editASpell(s)" >Modifier un sort</button></div>
-    <div *ngIf="roleIsMJ()" id="addButton"><button  routerLink="/spellForm" type="button" class="btn btn-primary">Ajouter un sort</button></div>
   </div>
 
 </div>
