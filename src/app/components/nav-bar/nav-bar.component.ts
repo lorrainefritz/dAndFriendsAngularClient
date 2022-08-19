@@ -41,7 +41,6 @@ pseudo?:string;
       this.cookieService.delete('tokenDandFriends');
       this.cookieService.delete('roleDandFriends');
       this.cookieService.delete('pseudoDandFriends');
-
       alert("vous avez été déconnecté");
       this.router.navigateByUrl("/login");
     }

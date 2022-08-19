@@ -38,7 +38,6 @@ export class SpellService {
   public deleteASpellById(id: number):Observable<void>{
     let headers = new HttpHeaders();
     let host = environment.host;
-    alert(id)
     return this.http.delete<void>(host + "/spells/delete/" + id,{headers: headers,withCredentials: true});
   }
 

@@ -1,9 +1,10 @@
-<div class="form-body">
-  <div class="row">
+<body>
+<div class="container" id="spellFormEdit">
+  <div class="form-body">
     <div class="form-holder"></div>
     <div class="form-content">
-      <div class="form-items">
-        <h2>Editer ce sort : <strong>{{currentSpell?.title}}</strong></h2>
+      <div class="form- items">
+        <h1>Editer ce sort : <strong>{{currentSpell?.title}}</strong></h1>
         <form [formGroup]="spellFormEdit" #spell="ngForm" (ngSubmit)="addSpellAfterEdit(spell.value)">
 
           <div class="col-md-12" hidden>
@@ -26,42 +27,69 @@
           </div>
 
           <div class="col-md-12">
-            <div><label><strong>Type personnalisé de sort : </strong></label>
-              <div class="form-group" *ngFor="let customType of customTypeOfSpells">
-                <input formControlName="customTypeOfSpellName" type="radio" name="customTypeOfSpellName"
-                       value="{{customType.customTypeOfSpellName}}"
-                       ngModel name="customTypeOfSpellName">{{customType.customTypeOfSpellName}}
+            <div class="form-group">
+              <div container-fluid>
+                <div><label><strong>Type personnalisé de sort : </strong></label>
+                  <div class="d-flex flex-wrap">
+                    <div id="customType" *ngFor="let customType of customTypeOfSpells">
+                      <input formControlName="customTypeOfSpellName" type="radio" name="customTypeOfSpellName"
+                             value="{{customType.customTypeOfSpellName}}"
+                             ngModel name="customTypeOfSpellName">{{customType.customTypeOfSpellName}}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div *ngIf="f['customTypeOfSpellName'].touched && f['customTypeOfSpellName'].invalid" class="alert alert-danger">
-              <div *ngIf="f['customTypeOfSpellName'].errors && f['customTypeOfSpellName'].errors['required']">customTypeOfSpellName is required.</div>
+            <div *ngIf="f['customTypeOfSpellName'].touched && f['customTypeOfSpellName'].invalid"
+                 class="alert alert-danger">
+              <div *ngIf="f['customTypeOfSpellName'].errors && f['customTypeOfSpellName'].errors['required']">
+                customTypeOfSpellName is required.
+              </div>
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label id="school"><strong>Ecole : </strong></label>
-              <input formControlName="school" type="radio" name="school" value="ABJURATION" ngModel name="school"
-                     checked="checked"> Abjuration
-              <input formControlName="school" type="radio" name="school" value="DIVINATION" ngModel name="school">
-              Divination
-              <input formControlName="school" type="radio" name="school" value="ENCHANTEMENT" ngModel name="school">
-              Enchantement
-              <input formControlName="school" type="radio" name="school" value="EVOCATION" ngModel name="school">
-              Evocation
-              <input formControlName="school" type="radio" name="school" value="ILLUSION" ngModel name="school">
-              Illusion
-              <input formControlName="school" type="radio" name="school" value="INVOCATION" ngModel name="school">
-              Invocation
-              <input formControlName="school" type="radio" name="school" value="NECROMANCIE" ngModel name="school">
-              Necromancie
-              <input formControlName="school" type="radio" name="school" value="TRANSMUTATION" ngModel name="school">
-              Transmutation
+              <div class="d-flex flex-wrap" id="schoolRadios">
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ABJURATION" ngModel name="school"
+                         checked="checked"> Abjuration
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="DIVINATION" ngModel name="school">
+                  Divination
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ENCHANTEMENT" ngModel name="school">
+                  Enchantement
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="EVOCATION" ngModel name="school">
+                  Evocation
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ILLUSION" ngModel name="school">
+                  Illusion
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="INVOCATION" ngModel name="school">
+                  Invocation
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="NECROMANCIE" ngModel name="school">
+                  Necromancie
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="TRANSMUTATION" ngModel
+                         name="school">
+                  Transmutation
+                </div>
+              </div>
             </div>
             <div *ngIf="f['school'].touched && f['school'].invalid" class="alert alert-danger">
               <div *ngIf="f['school'].errors && f['school'].errors['required']">School is required.</div>
             </div>
           </div>
-
           <div class="col-md-12">
             <div class="form-group">
               <label for="level"><strong>Niveau :</strong> </label>
@@ -245,3 +273,4 @@
     </div>
   </div>
 </div>
+</body>

@@ -32,7 +32,6 @@ export class SpellEditComponent implements OnInit {
       this.initializeStuff(id);
       this.spellService.getASpellDescription(id).subscribe(data => {
         this.currentSpell = data;
-        alert(this.currentSpell.title);
         this.spellFormEdit.setValue({
           id:params.get('id'),
           title:this.currentSpell!== undefined ? this.currentSpell.title :'',
@@ -98,10 +97,10 @@ export class SpellEditComponent implements OnInit {
   }
 
   addSpellAfterEdit(spell: SpellFullDescription) {
-    alert(spell.id + spell.title + spell.customTypeOfSpellName + spell.school +
+  /*  alert(spell.id + spell.title + spell.customTypeOfSpellName + spell.school +
       spell.level + spell.componentsNames + spell.characterClassesNames +
       spell.castingTime + spell.range + spell.target + spell.duration + spell.savingThrow
-      + spell.spellResistance + spell.shortDescription + spell.fullDescription + spell.icon);
+      + spell.spellResistance + spell.shortDescription + spell.fullDescription + spell.icon);*/
 
     this.spellService.addASpell(spell).subscribe((response: SpellFullDescription) => {
       console.log(response);

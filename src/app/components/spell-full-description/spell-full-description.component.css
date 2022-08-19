@@ -47,3 +47,29 @@ body {
 #buttons #deleteButton {
   padding-top: 2%;
 }
+.btn-secondary {
+  background-color: #38b059;
+  border: none;
+}
+.btn-secondary:hover  {
+  background-color: #1a8339;
+  border: none;
+}
+
+.btn-primary  {
+  background-color: #953df8;
+  border: none;
+}
+
+.btn-primary:hover  {
+  background-color: #780cfc;
+  border: none;
+}
+
+.btn-danger{
+  background-color: #111111;
+  border: none;
+}
+.btn-danger:hover{
+  background-color: #fc0202;
+}

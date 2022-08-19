@@ -1,9 +1,10 @@
-<div class="form-body">
-  <div class="row">
+<body>
+<div class="container" id="spellForm">
+  <div class="form-body">
     <div class="form-holder"></div>
     <div class="form-content">
-      <div class="form-items">
-        <h2>Ajouter un nouveau sort</h2>
+      <div class="form- items">
+        <h1>Ajouter un nouveau sort</h1>
         <form [formGroup]="spellForm" #spell="ngForm" (ngSubmit)="addASpell(spell.value)">
 
           <div class="col-md-12" hidden>
@@ -19,7 +20,9 @@
               <label for="title"><strong>Title :</strong></label>
               <input formControlName="title" id="title" type="text" class="form-control">
               <div *ngIf="f['title'].touched && f['title'].invalid" class="alert alert-danger">
-                <div *ngIf="f['title'].errors && f['title'].errors['minlength']">title should be 3 characters long at least.</div>
+                <div *ngIf="f['title'].errors && f['title'].errors['minlength']">title should be 3 characters long at
+                  least.
+                </div>
                 <div *ngIf="f['title'].errors && f['title'].errors['required']">title is required.</div>
                 <div *ngIf="f['title'].errors && f['title'].errors['maxlength']">title should be < 65 characters.</div>
               </div>
@@ -27,36 +30,64 @@
           </div>
 
           <div class="col-md-12">
-            <div><label><strong>Type personnalisé de sort : </strong></label>
-              <div class="form-group" *ngFor="let customType of customTypeOfSpells">
-                <input formControlName="customTypeOfSpellName" type="radio" name="customTypeOfSpellName"
-                       value="{{customType.customTypeOfSpellName}}"
-                       ngModel name="customTypeOfSpellName">{{customType.customTypeOfSpellName}}
+            <div class="form-group">
+              <div container-fluid>
+                <div><label><strong>Type personnalisé de sort : </strong></label>
+                  <div class="d-flex flex-wrap">
+                    <div id="customType" *ngFor="let customType of customTypeOfSpells">
+                      <input formControlName="customTypeOfSpellName" type="radio" name="customTypeOfSpellName"
+                             value="{{customType.customTypeOfSpellName}}"
+                             ngModel name="customTypeOfSpellName">{{customType.customTypeOfSpellName}}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div *ngIf="f['customTypeOfSpellName'].touched && f['customTypeOfSpellName'].invalid" class="alert alert-danger">
-              <div *ngIf="f['customTypeOfSpellName'].errors && f['customTypeOfSpellName'].errors['required']">customTypeOfSpellName is required.</div>
+            <div *ngIf="f['customTypeOfSpellName'].touched && f['customTypeOfSpellName'].invalid"
+                 class="alert alert-danger">
+              <div *ngIf="f['customTypeOfSpellName'].errors && f['customTypeOfSpellName'].errors['required']">
+                customTypeOfSpellName is required.
+              </div>
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label id="school"><strong>Ecole : </strong></label>
-              <input formControlName="school" type="radio" name="school" value="ABJURATION" ngModel name="school"
-                     checked="checked"> Abjuration
-              <input formControlName="school" type="radio" name="school" value="DIVINATION" ngModel name="school">
-              Divination
-              <input formControlName="school" type="radio" name="school" value="ENCHANTEMENT" ngModel name="school">
-              Enchantement
-              <input formControlName="school" type="radio" name="school" value="EVOCATION" ngModel name="school">
-              Evocation
-              <input formControlName="school" type="radio" name="school" value="ILLUSION" ngModel name="school">
-              Illusion
-              <input formControlName="school" type="radio" name="school" value="INVOCATION" ngModel name="school">
-              Invocation
-              <input formControlName="school" type="radio" name="school" value="NECROMANCIE" ngModel name="school">
-              Necromancie
-              <input formControlName="school" type="radio" name="school" value="TRANSMUTATION" ngModel name="school">
-              Transmutation
+              <div class="d-flex flex-wrap" id="schoolRadios">
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ABJURATION" ngModel name="school"
+                         checked="checked"> Abjuration
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="DIVINATION" ngModel name="school">
+                  Divination
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ENCHANTEMENT" ngModel name="school">
+                  Enchantement
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="EVOCATION" ngModel name="school">
+                  Evocation
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="ILLUSION" ngModel name="school">
+                  Illusion
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="INVOCATION" ngModel name="school">
+                  Invocation
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="NECROMANCIE" ngModel name="school">
+                  Necromancie
+                </div>
+                <div class="schoolRadio">
+                  <input formControlName="school" type="radio" name="school" value="TRANSMUTATION" ngModel
+                         name="school">
+                  Transmutation
+                </div>
+              </div>
             </div>
             <div *ngIf="f['school'].touched && f['school'].invalid" class="alert alert-danger">
               <div *ngIf="f['school'].errors && f['school'].errors['required']">School is required.</div>
@@ -90,7 +121,9 @@
                 <option value="Xp">Xp</option>
               </select>
               <div *ngIf="f['componentsNames'].touched && f['componentsNames'].invalid" class="alert alert-danger">
-                <div *ngIf="f['componentsNames'].errors && f['componentsNames'].errors['required']">Components are required.</div>
+                <div *ngIf="f['componentsNames'].errors && f['componentsNames'].errors['required']">Components are
+                  required.
+                </div>
               </div>
             </div>
           </div>
@@ -109,8 +142,11 @@
                 <option value="paladin">Paladin</option>
                 <option value="druide">Druide</option>
               </select>
-              <div *ngIf="f['characterClassesNames'].touched && f['characterClassesNames'].invalid" class="alert alert-danger">
-                <div *ngIf="f['characterClassesNames'].errors && f['characterClassesNames'].errors['required']">CharacterClass are required.</div>
+              <div *ngIf="f['characterClassesNames'].touched && f['characterClassesNames'].invalid"
+                   class="alert alert-danger">
+                <div *ngIf="f['characterClassesNames'].errors && f['characterClassesNames'].errors['required']">
+                  CharacterClass are required.
+                </div>
               </div>
             </div>
             <div class="form-group">
@@ -119,9 +155,14 @@
                      id="castingTime"
                      placeholder="castingTime" required>
               <div *ngIf="f['castingTime'].touched && f['castingTime'].invalid" class="alert alert-danger">
-                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['minlength']">castingTime should be 3 characters long at least.</div>
-                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['required']">castingTime is required.</div>
-                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['maxlength']">castingTime should be < 65 characters.</div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['minlength']">castingTime should be 3
+                  characters long at least.
+                </div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['required']">castingTime is required.
+                </div>
+                <div *ngIf="f['castingTime'].errors && f['castingTime'].errors['maxlength']">castingTime should be < 65
+                  characters.
+                </div>
               </div>
             </div>
           </div>
@@ -132,7 +173,9 @@
               <input formControlName="range" type="text" ngModel name="range" class="form-control" id="range"
                      placeholder="range" required>
               <div *ngIf="f['range'].touched && f['range'].invalid" class="alert alert-danger">
-                <div *ngIf="f['range'].errors && f['range'].errors['minlength']">range should be 3 characters long at least.</div>
+                <div *ngIf="f['range'].errors && f['range'].errors['minlength']">range should be 3 characters long at
+                  least.
+                </div>
                 <div *ngIf="f['range'].errors && f['range'].errors['required']">range is required.</div>
                 <div *ngIf="f['range'].errors && f['range'].errors['maxlength']">range should be < 65 characters.</div>
               </div>
@@ -145,9 +188,12 @@
               <input formControlName="target" type="target" ngModel name="target" class="form-control" id="target"
                      placeholder="target" required>
               <div *ngIf="f['target'].touched && f['target'].invalid" class="alert alert-danger">
-                <div *ngIf="f['target'].errors && f['target'].errors['minlength']">target should be 3 characters long at least.</div>
+                <div *ngIf="f['target'].errors && f['target'].errors['minlength']">target should be 3 characters long at
+                  least.
+                </div>
                 <div *ngIf="f['target'].errors && f['target'].errors['required']">target is required.</div>
-                <div *ngIf="f['target'].errors && f['target'].errors['maxlength']">target should be < 65 characters.</div>
+                <div *ngIf="f['target'].errors && f['target'].errors['maxlength']">target should be < 65 characters.
+                </div>
               </div>
             </div>
           </div>
@@ -159,9 +205,13 @@
                      id="duration"
                      placeholder="duration" required>
               <div *ngIf="f['duration'].touched && f['duration'].invalid" class="alert alert-danger">
-                <div *ngIf="f['duration'].errors && f['duration'].errors['minlength']">duration should be 3 characters long at least.</div>
+                <div *ngIf="f['duration'].errors && f['duration'].errors['minlength']">duration should be 3 characters
+                  long at least.
+                </div>
                 <div *ngIf="f['duration'].errors && f['duration'].errors['required']">duration is required.</div>
-                <div *ngIf="f['duration'].errors && f['duration'].errors['maxlength']">duration should be < 65 characters.</div>
+                <div *ngIf="f['duration'].errors && f['duration'].errors['maxlength']">duration should be < 65
+                  characters.
+                </div>
               </div>
             </div>
           </div>
@@ -173,9 +223,13 @@
                      id="spellResistance"
                      placeholder="savingThrow" required>
               <div *ngIf="f['savingThrow'].touched && f['savingThrow'].invalid" class="alert alert-danger">
-                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['minlength']">Icon should be 3 characters long at least.</div>
+                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['minlength']">Icon should be 3 characters
+                  long at least.
+                </div>
                 <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['required']">Icon is required.</div>
-                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['maxlength']">Icon should be < 65 characters.</div>
+                <div *ngIf="f['savingThrow'].errors && f['savingThrow'].errors['maxlength']">Icon should be < 65
+                  characters.
+                </div>
               </div>
             </div>
           </div>
@@ -189,7 +243,9 @@
                      name="spellResistance"> Faux
             </div>
             <div *ngIf="f['spellResistance'].touched && f['spellResistance'].invalid" class="alert alert-danger">
-              <div *ngIf="f['spellResistance'].errors && f['spellResistance'].errors['required']">spellResistance is required.</div>
+              <div *ngIf="f['spellResistance'].errors && f['spellResistance'].errors['required']">spellResistance is
+                required.
+              </div>
             </div>
           </div>
 
@@ -201,9 +257,15 @@
                      id="shortDescription"
                      placeholder="shortDescription" required>
               <div *ngIf="f['shortDescription'].touched && f['shortDescription'].invalid" class="alert alert-danger">
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">shortDescription should be 3 characters long at least.</div>
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['required']">shortDescription is required.</div>
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['maxlength']">shortDescription should be < 250 characters.</div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">shortDescription
+                  should be 3 characters long at least.
+                </div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['required']">shortDescription
+                  is required.
+                </div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['maxlength']">shortDescription
+                  should be < 250 characters.
+                </div>
               </div>
             </div>
           </div>
@@ -215,9 +277,15 @@
                      id="fullDescription"
                      placeholder="fullDescription" required>
               <div *ngIf="f['fullDescription'].touched && f['fullDescription'].invalid" class="alert alert-danger">
-                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['required']">fullDescription is required.</div>
-                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">fullDescription should be 3 characters long at least.</div>
-                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['maxlength']">fullDescription is too long, should be 250 characters max.</div>
+                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['required']">fullDescription is
+                  required.
+                </div>
+                <div *ngIf="f['shortDescription'].errors && f['shortDescription'].errors['minlength']">fullDescription
+                  should be 3 characters long at least.
+                </div>
+                <div *ngIf="f['fullDescription'].errors && f['fullDescription'].errors['maxlength']">fullDescription is
+                  too long, should be 250 characters max.
+                </div>
               </div>
             </div>
           </div>
@@ -228,7 +296,9 @@
               <input formControlName="icon" type="icon" ngModel name="icon" class="form-control" id="icon"
                      placeholder="icon">
               <div *ngIf="f['icon'].touched && f['icon'].invalid" class="alert alert-danger">
-                <div *ngIf="f['icon'].errors && f['icon'].errors['minlength']">Icon should be 3 characters long at least.</div>
+                <div *ngIf="f['icon'].errors && f['icon'].errors['minlength']">Icon should be 3 characters long at
+                  least.
+                </div>
                 <div *ngIf="f['icon'].errors && f['icon'].errors['required']">Icon is required.</div>
                 <div *ngIf="f['icon'].errors && f['icon'].errors['maxlength']">Icon should be < 250 characters.</div>
               </div>
@@ -244,3 +314,4 @@
     </div>
   </div>
 </div>
+</body>
