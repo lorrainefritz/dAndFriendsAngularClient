@@ -1,85 +1,45 @@
 <body>
-<div class="barColor"></div>
-<div class="container" id="generalPage">
-  <div class="container-fluid mt-3">
-    <div class="container">
-      <div class="col-md-6 offset-md-3 text-center">
-        <div class="d-flex align-items-center justify-content-center">
-          <h1 class="column"> Après avoir lancé ton Dé, ton Sort a : </h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="dicesAndEffects">
-    <div>
-      <div class="d-flex align-items-center justify-content-center" id="container">
-
-        <div class="successContainer">
-
-          <div class="container py-5 text-center">
-            <a class=" buzz-out-on-hover">
-              <div id="imageSuccess"><img class="img fluid"
-                                          src="https://drive.google.com/uc?id=12PU9UlJIsSkuksutPS7W-6AjCjyuP4Fq"
-                                          width="150"
-                                          height="150" alt="Google Drive Image"
-                                          (click)="getAspellCastingOutcome(true)">
-              </div>
-            </a>
-            <div class="middle">
-              <p id="success">Réussi ! </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="failureContainer">
-          <div class="container py-5 text-center">
-            <a class=" buzz-out-on-hover">
-              <div id="imageFailure"><img class="img fluid"
-                                          src="https://drive.google.com/uc?id=1KuT2nX0hpEajiJCffAh3txVnGZrNGTxF"
-                                          width="150"
-                                          height="150" alt="Google Drive Image"
-                                          (click)="getAspellCastingOutcome(false)">
-              </div>
-            </a>
-            <div class="middle">
-              <p id="failure">Echoué </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex align-items-center justify-content-center">
-
-        <div><img class="img-fluid" src="https://drive.google.com/uc?id=1kHjnvDugv1vYyFPOKJjRC1r9cDInLI0U" width="250"
-                  height="250" alt="Google Drive Image"></div>
-
-    </div>
-  </div>
- <div id ="spellCastingOutcome">
-  <div class="d-flex align-items-center justify-content-center" id="Outcome" >
-    <div>
-      <div>{{spellCastingOutcome?.icon}}</div>
-    </div>
-    <h2> {{spellCastingOutcome?.description}}</h2>
-  </div>
-
-  <div class="d-flex align-items-center justify-content-center" id="SuppOutcomeButton">
-    <div *ngIf="spellCastingOutcome?.hasARandomAdditionalEffect">
-      <button class="btn btn-dark" (click)="onGetAnAdditionalRandomOutcome()">Effet Supplémentaire</button>
-    </div>
-  </div>
-  <div class="d-flex align-items-center justify-content-center" id="additionalOutcome">
-    <div>
-      <div>{{additionalRandomOutcome?.icon}}</div>
-    </div>
-    <h2>
-      {{additionalRandomOutcome?.description}}
-    </h2>
-  </div>
- </div>
+<div class="d-flex align-items-center justify-content-center barColor">
+  <h1>Après avoir lancé ton Dé, ton Sort a :</h1>
 </div>
-<div class="barColor"></div>
+
+<div class="container" id="generalPage">
+  <div id="spellCastingOutcome">
+    <!-- Outcome description -->
+    <div class="d-flex align-items-center justify-content-center" id="Outcome">
+      <div>{{ spellCastingOutcome?.icon }}</div>
+      <h2>{{ spellCastingOutcome?.description }}</h2>
+    </div>
+
+    <!-- Button for additional outcome -->
+    <div class="d-flex align-items-center justify-content-center" id="SuppOutcomeButton">
+      <button class="btn btn-dark" *ngIf="spellCastingOutcome?.hasARandomAdditionalEffect" (click)="onGetAnAdditionalRandomOutcome()">Effet Supplémentaire</button>
+    </div>
+
+    <!-- Additional outcome description -->
+    <div class="d-flex align-items-center justify-content-center" id="additionalOutcome">
+      <div>{{ additionalRandomOutcome?.icon }}</div>
+      <h2>{{ additionalRandomOutcome?.description }}</h2>
+    </div>
+  </div>
+
+  <!-- Dices and Effects -->
+  <div class="dicesAndEffects">
+    <!-- Success container -->
+    <div class="successContainer text-center">
+      <a class="buzz-out-on-hover">
+        <img class="img-fluid dice" src="assets/images/logos/successDice.png" alt="Success Dice Image" (click)="getAspellCastingOutcome(true)">
+      </a>
+      <p id="success">Réussi !</p>
+    </div>
+
+    <!-- Failure container -->
+    <div class="failureContainer text-center">
+      <a class="buzz-out-on-hover">
+        <img class="img-fluid dice" src="assets/images/logos/failureDice.png" alt="Failure Dice Image" (click)="getAspellCastingOutcome(false)">
+      </a>
+      <p id="failure">Echoué</p>
+    </div>
+  </div>
+</div>
 </body>

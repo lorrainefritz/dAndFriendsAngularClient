@@ -1,1 +1,33 @@
-a, a:hover, a:active, a:visited { color: white; }
+/* Footer CSS */
+a, a:hover, a:active, a:visited {
+  color: white;
+}
+
+/* Social media logos */
+.facebook-logo,
+.instagram-logo,
+.twitter-logo {
+  height: 70px; /* Set standard height for larger screens */
+  width: auto; /* Maintain aspect ratio */
+}
+
+@media only screen and (max-width: 600px) {
+  .facebook-logo,
+  .instagram-logo,
+  .twitter-logo {
+    height: 45px; /* Smaller height for mobile */
+    width: auto; /* Maintain aspect ratio */
+  }
+}
+
+/* Add this to your CSS to ensure padding is consistent around the logos */
+.px-1 {
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+/* Adjust padding for the container inside the footer */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}

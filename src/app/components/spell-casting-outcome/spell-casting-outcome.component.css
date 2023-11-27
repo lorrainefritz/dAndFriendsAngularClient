@@ -1,101 +1,118 @@
-.barColor{
-padding-top: 2%;
+body {
+  background-color: rgb(8, 6, 10);
+  background-image: url("src/assets/images/backgrounds/spellBackground.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* or 'fixed' if you want it to stay in place when scrolling */
+  background-position: center center;
+  background-size: contain; /* 'contain' will make sure the entire image is visible */
+  min-height: 100vh;
+}
+
+/* Bar Color */
+.barColor {
+  padding-top: 2%;
   background-color: rgb(217, 193, 241);
 }
 
-body{
- /*
-  background-repeat: no-repeat, repeat;
-  background-position: center;
-  background-size: cover;*/
-   background-color: #111111;
+/* Typography */
+h1, h2 {
+
+  font-family: 'Libre Baskerville', serif;
 
 
 }
 h1{
-  font-family: 'Curlz MT', cursive;
-  color: #e5e0ea;
+  color: #0c0c0c;
+   text-shadow: #7b00ff 1px 0 10px; /* Horizontal shadow, Vertical shadow, Blur radius, Color */
 }
-#generalPage{
-
-}
-.dicesAndEffects{
-  padding: 2%;
-  background-image: url("https://drive.google.com/uc?id=13NEukuGGeXlOG_2QQKRgjYkqBFcFyo5i");
-  background-repeat: no-repeat, repeat;
-  background-position: center;
-  background-size: cover;
+h2{
+  color: #ffffff;
+  text-shadow: #6600ff 1px 0 10px; /* Horizontal shadow, Vertical shadow, Blur radius, Color */
 }
 
-#imageSuccess:hover {
-  opacity: 1;
+
+#generalPage {
+  min-height: 90vh; /* Set minimum height to fill the viewport */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Space between items, pushing the last item to the bottom */
+}
+
+
+.dicesAndEffects {
+  display: flex;
+  justify-content: center; /* Centers the dices horizontally */
+  align-items: center; /* Aligns the dices vertically */
+  padding-bottom: 20px; /* Adjust this value as needed to bring dices closer to the bottom */
+}
+
+.container {
+  padding-bottom: 20px; /* Adjust the bottom padding for the overall container */
+}
+
+/* Dice Images and Hover Effects */
+.dice{
+  height: 150px;
+  width: auto; /* This will maintain the aspect ratio */
+}
+
+/* Success and Failure Containers */
+.successContainer,
+.failureContainer {
+
+  margin: 0 100px; /* Add margin to space out the dice */
+}
+
+#imageSuccess, #imageFailure {
   transition: .5s ease;
+}
+
+#imageSuccess:hover, #imageFailure:hover {
   opacity: 0.3;
-
-}
-#imageFailure:hover {
-  opacity: 1;
-  transition: .5s ease;
-  opacity: 0.3;
-}
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  text-decoration:none;
-}
-#container:hover .middle {
-  opacity: 1;
-  transition: .5s ease;
-
 }
 
-#failure {
-  background-color: #860606;
-  text-align: center;
-  color: white;
-  /*font-size: 16px;*/
-  font-family: 'Times New Roman', cursive;
-  width: content-box;
-  opacity: 0.5;
 
-}
-#success {
-  background-color: #138f07;
-  text-align: center;
-  color: white;
-  font-family: 'Times New Roman', cursive;
-  opacity: 0.5;
-
-}
-
-#imageSuccess {
-
-  flex: 50%;
-  padding: 50px;
-
-
-}
-
-#imageFailure {
-  flex: 50%;
-  padding: 50px;
-
-}
-
-#spellCastingOutcome h2{
-  font-family: 'Curlz MT', cursive;
-  color: #e5e0ea;
-}
-#Outcome{
+#Outcome, #SuppOutcomeButton, #additionalOutcome {
   padding-top: 2%;
 }
-#SuppOutcomeButton{
-  padding: 1%;
-}
-/*#additionalOutcome{
-  padding: 2%;
-}*/
 
+/* Success and Failure Containers */
+#success, #failure {
+  background-color: #860606; /* Red for failure */
+  color: white;
+  text-align: center;
+  font-family: 'Times New Roman', cursive;
+  opacity: 0.5;
+}
+
+#success {
+  background-color: #138f07; /* Green for success */
+}
+
+/* Mobile parameters */
+@media only screen and (max-width: 600px) {
+  h1,h2 {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+
+  .dicesAndEffects {
+    flex-direction: row; /* Keeps dices in a horizontal line */
+    justify-content: space-around; /* Spreads out the dices with space around them */
+    padding-bottom: 200px; /* Adjust as needed for mobile view */
+  }
+
+  .dice{
+    height: 60px; /* Smaller size for mobile */
+    width: auto; /* This will maintain the aspect ratio */
+  }
+  .successContainer,
+  .failureContainer {
+    margin: 0 30px; /* Reduce the margin for mobile */
+  }
+}
+
+
+/* Animation Effects */
 /*====================*/
 /* BUZZ OUT
 /*====================*/

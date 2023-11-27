@@ -1,4 +1,43 @@
+@import url('https://fonts.google.com/specimen/Uncial+Antiqua');
+
 .dropend{
   padding-left: 2%;
 }
 
+/* Default styles for larger screens */
+.navbar-logo,
+.navbar-mirror-logo {
+  width: 300px; /* Standard size on desktop */
+}
+
+.avatar-connected-logo {
+  height: 90px; /* Adjust the height as needed */
+  width: auto; /* This will maintain the aspect ratio */
+}
+
+.avatar-disconnected-logo {
+  height: 110px; /* Adjust the height as needed */
+  width: auto; /* This will maintain the aspect ratio */
+}
+
+/* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 600px) {
+
+  .navbar-nav {
+    padding-left: 15px; /* Adds padding to the left of the nav */
+  }
+  .nav-item {
+    padding-right: 10px; /* Adjusts padding for each item if needed */
+  }
+
+  .navbar-logo,
+  .navbar-mirror-logo {
+    width: 120px; /* Smaller size for mobile */
+  }
+
+  .avatar-connected-logo,
+  .avatar-disconnected-logo {
+    height: 45px; /* Smaller size for mobile */
+    width: auto; /* This will maintain the aspect ratio */
+  }
+}

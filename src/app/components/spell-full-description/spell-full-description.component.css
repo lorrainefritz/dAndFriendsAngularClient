@@ -3,7 +3,8 @@ body {
   padding-top: 1%;
   padding-bottom: 1%;
   background-color: rgba(161, 112, 238, 0.56);
-
+  font-family: 'Libre Baskerville', serif;
+  color: #0c0c0c;
 
 }
 #totalSpellListList{
@@ -13,11 +14,9 @@ body {
   padding-right: 2%;
   padding-bottom:2%;
 }
+
+
 #descriptionSpellList h1{
-  font-family:'Brush Script MT', cursive;
-}
-#descriptionSpellList h2{
-  font-family:'Brush Script MT', cursive;
   font-style: italic;
 
 }
@@ -29,8 +28,7 @@ body {
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom:2%;
-  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
-  /*background-image: url("https://drive.google.com/uc?id=1RglaVfsXF48CSSMQSK9MvEz6b11zkbgX");*/
+  background-image: url("src/assets/images/backgrounds/parchemin.png");
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -72,4 +70,13 @@ body {
 }
 .btn-danger:hover{
   background-color: #fc0202;
+}
+@media only screen and (max-width: 768px) {
+  body{
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+  #descriptionSpellList {
+    padding-left: 20px; /* Adds space on the left */
+    padding-right: 20px; /* Adds space on the right */
+  }
 }

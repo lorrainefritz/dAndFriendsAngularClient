@@ -4,6 +4,8 @@ body{
   background-position: center;
   background-size: cover;*/
   background-color: rgb(200, 183, 238);
+  font-family: 'Libre Baskerville', serif;
+  color: #0c0c0c;
 }
 #imageCustomSpellTypeContainer{
   padding-top: 2%;
@@ -16,6 +18,8 @@ body{
   backface-visibility: hidden;
   border-style: solid;
   border-color: black;
+  height: 150px; /* Adjust the height as needed */
+  width: 150px; /* This will maintain the aspect ratio */
 }
 
 .middle {
@@ -53,7 +57,7 @@ body{
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom:2%;
-  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
+  background-image: url("src/assets/images/backgrounds/parchemin.png");
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -61,13 +65,10 @@ body{
 }
 
 #spellContainer h1{
-  font-family:'Brush Script MT', cursive;
-}
-
-#spellContainer h3{
-  font-family:'Brush Script MT', cursive;
   font-style: italic;
 }
+
+
 
 
 
@@ -78,6 +79,8 @@ body{
   display: block;
   transition: .5s ease;
   backface-visibility: hidden;
+ /* height: 150px; !* Adjust the height as needed *!
+  width: auto; !* This will maintain the aspect ratio *!*/
 
 }
 
@@ -109,7 +112,7 @@ body{
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom:2%;
-  background-image: url("https://drive.google.com/uc?id=1ZXQoNE1e9xu0R3nvi_yM3w-j2ndVIggc");
+  background-image: url("src/assets/images/backgrounds/parchemin.png");
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -121,13 +124,13 @@ body{
 
 .popup h1 {
   margin-top: 0;
-  color: #111111;
-  font-family:'Brush Script MT', cursive;
+  /*color: #111111;*/
+  font-style: italic;
   font-size: xxx-large;
 }
 .popup h3 {
   margin-top: 0;
-  color: #333;
+ /* color: #333;*/
 }
 .popup .close {
   position: absolute;
@@ -152,5 +155,31 @@ body{
 
   .popup{
     width: 70%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* This will center the items horizontally */
+  }
+  #imageCustomSpellTypeContainer {
+    flex-basis: 150px; /* Width of the image plus some padding */
+    margin: 5px; /* Gives a little space between the items */
+    display: flex;
+    flex-direction: column; /* Aligns the image and text in a column */
+    align-items: center; /* Centers the items on the cross axis */
+  }
+  #imageCustomSpellType {
+    height: 65px; /* Smaller size for mobile */
+    width: auto; /* This will maintain the aspect ratio */
+  }
+  .nameCustomSpellType {
+      font-size: 1rem; /* Smaller font size for mobile */
+    width: 100%; /* This will make the width match the parent container */
+    margin-top: 5px; /* Adds a little space between the image and the text */
+  }
+  .popup{
+    font-size: 0.8rem; /* Smaller font size for mobile */
   }
 }

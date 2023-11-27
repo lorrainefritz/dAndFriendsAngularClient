@@ -1,15 +1,49 @@
-.barColor{
+.barColor {
   padding-top: 2%;
   background-color: rgb(217, 193, 241);
 }
-body{
+
+
+body {
   background-color: rgb(217, 193, 241);
   color: #e5e0ea;
 }
-.container{
+
+.container {
   padding: 2%;
   background-color: #111111;
 }
-h1,h2,h3{
-  font-family: 'Curlz MT', cursive;
+
+.decorationTitleImage {
+  height: 100px; /* Adjust the height as needed */
+  width: auto; /* This will maintain the aspect ratio */
+}
+
+body {
+  font-family: 'Libre Baskerville', serif;
+}
+
+h1, h2, h3 {
+  font-style: italic;
+}
+
+.mageFlowerLogo {
+  height: 200px;
+  width: auto;
+
+}
+
+/* Media Query for small screens */
+@media only screen and (max-width: 600px) {
+  body{
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+  .decorationTitleImage{
+    height: 45px; /* Smaller size for mobile */
+    width: auto; /* This will maintain the aspect ratio */
+  }
+  .mageFlowerLogo{
+    height: 100px; /* Smaller size for mobile */
+    width: auto; /* This will maintain the aspect ratio */
+  }
 }
